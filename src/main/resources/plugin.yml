@@ -1,7 +1,7 @@
 main: com.rogue.regexblock.RegexBlock
 name: ${project.name}
 prefix: RegexBlock
-description: Allows filtering of commands and chats through dynamic regex usage
+description: Allows filtering of commands and chat through dynamic regex usage
 version: ${project.version}
 author: 1Rogue
 website: https://github.com/1Rogue
