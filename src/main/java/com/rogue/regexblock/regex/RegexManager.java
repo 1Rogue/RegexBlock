@@ -20,6 +20,7 @@ import com.rogue.regexblock.RegexBlock;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -151,12 +152,12 @@ public class RegexManager {
         ConfigurationSection stuff = regexFile.getConfigurationSection("regexes");
         Set<String> allregexes = stuff.getKeys(false);
         for (String name : allregexes) {
-            if (!(regexFile.getString("regexes." + name + ".reason").equals("") || regexFile.getString("regexes." + name + ".reason") == null)
-               && !(regexFile.getString("regexes." + name + ".regex").equals("") || regexFile.getString("regexes." + name + ".regex") == null)) {
-                this.addRegex(name, regexFile.getString("regexes." + name + ".reason"), regexFile.getString("regexes." + name + ".regex"));
-            } else {
-                plugin.getLogger().severe("Bad regex in config: '" + name + "'!");
-            }
+            if ((!regexFile.getString("regexes." + name + ".reason").equals("") && regexFile.getString("regexes." + name + ".reason") != null)
+               && (!regexFile.getString("regexes." + name + ".regex").equals("") && regexFile.getString("regexes." + name + ".regex") != null)) {
+             this.addRegex(name, regexFile.getString("regexes." + name + ".reason"), regexFile.getString("regexes." + name + ".regex"));
+         } else {
+             plugin.getLogger().log(Level.SEVERE, "Bad regex in config: ''{0}''!", name);
+         }
         }
     }
 }
