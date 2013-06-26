@@ -45,7 +45,6 @@ public class RegexBlock extends JavaPlugin {
     protected File config;
     protected CommandHandler commands;
     protected RegexManager regexMan;
-    protected Map<String, RegexBuild> commandtemp = new HashMap();
 
     /**
      * Loads configuration
