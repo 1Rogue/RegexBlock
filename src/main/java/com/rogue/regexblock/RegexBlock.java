@@ -55,14 +55,6 @@ public class RegexBlock extends JavaPlugin {
         this.getLogger().log(Level.INFO, "Loading config...");
         config = new File(getDataFolder() + File.separator + "config.yml");
 
-        try {
-            Metrics metrics = new Metrics(this);
-            getLogger().info("Enabling Metrics...");
-            metrics.start();
-        } catch (IOException ex) {
-            Logger.getLogger(RegexBlock.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
         if (!config.exists()) {
             this.getLogger().info("Generating first time config.yml...");
             this.getConfig().addDefault("update-check", true);
