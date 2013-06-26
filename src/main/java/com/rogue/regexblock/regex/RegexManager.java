@@ -151,7 +151,12 @@ public class RegexManager {
         ConfigurationSection stuff = regexFile.getConfigurationSection("regexes");
         Set<String> allregexes = stuff.getKeys(false);
         for (String name : allregexes) {
-            this.addRegex(name, regexFile.getString("regexes." + name + ".reason"), regexFile.getString("regexes." + name + ".regex"));
+            if (!(regexFile.getString("regexes." + name + ".reason").equals("") || regexFile.getString("regexes." + name + ".reason") == null)
+               && !(regexFile.getString("regexes." + name + ".regex").equals("") || regexFile.getString("regexes." + name + ".regex") == null)) {
+                this.addRegex(name, regexFile.getString("regexes." + name + ".reason"), regexFile.getString("regexes." + name + ".regex"));
+            } else {
+                plugin.getLogger().severe("Bad regex in config: '" + name + "'!");
+            }
         }
     }
 }
