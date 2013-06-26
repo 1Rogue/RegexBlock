@@ -32,7 +32,7 @@ public class RemoveCommand implements SubCommand {
     public boolean execute(CommandSender sender, String[] args) {
         if (args.length == 2) {
             if ((RegexBlock.getPlugin().getManager().getRegexes().size() - RegexBlock.getPlugin().getManager().remRegex(args[1]).size()) == 1) {
-                sender.sendMessage("&aRegex removed");
+                sender.sendMessage(_("&aRegex removed"));
             } else {
                 sender.sendMessage(_("&eNo regex found by '&9" + args[1] + "&e'. Current regexes:"));
                 StringBuilder sb = new StringBuilder();

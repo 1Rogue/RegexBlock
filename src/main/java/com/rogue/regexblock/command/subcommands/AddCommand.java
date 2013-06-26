@@ -19,6 +19,7 @@ package com.rogue.regexblock.command.subcommands;
 import com.rogue.regexblock.RegexBlock;
 import com.rogue.regexblock.regex.RegexBuild;
 import static com.rogue.regexblock.RegexBlock._;
+import java.util.Map;
 import org.bukkit.command.CommandSender;
 
 /**
@@ -30,14 +31,14 @@ import org.bukkit.command.CommandSender;
 public class AddCommand implements SubCommand {
 
     public boolean execute(CommandSender sender, String[] args) {
+        Map<String, RegexBuild> rbm = RegexBlock.getPlugin().getCommandHandler().getBuildMap();
+        if (rbm.get(sender.getName()) == null) {
+            RegexBlock.getPlugin().getCommandHandler().getBuildMap().put(sender.getName(), new RegexBuild());
+            sender.sendMessage(_("&aNew Regex instance started."));
+        }
+        RegexBuild rb = RegexBlock.getPlugin().getCommandHandler().getBuildMap().get(sender.getName());
         switch (args.length) {
             case 1:
-                RegexBuild rb = RegexBlock.getPlugin().getCommandHandler().getBuildMap().get(sender.getName());
-                if (rb == null) {
-                    RegexBlock.getPlugin().getCommandHandler().getBuildMap().put(sender.getName(), new RegexBuild());
-                    sender.sendMessage(_("&aNew Regex instance started. Try Adding a name with &9/regexblock add name <regex-name>"));
-                    return true;
-                }
                 sender.sendMessage(_("&e>> "));
                 sender.sendMessage(_("&e>> &7Current Regex Name: &9" + rb.getName()));
                 sender.sendMessage(_("&e>> &7Current Pattern: &9" + rb.getPattern()));
@@ -67,15 +68,15 @@ public class AddCommand implements SubCommand {
                     sb.append(args[i]).append(" ");
                 }
                 if (args[1].equalsIgnoreCase("pattern")) {
-                    RegexBlock.getPlugin().getCommandHandler().getBuildMap().get(sender.getName()).setPattern(sb.substring(0, sb.length() - 1));
+                    rbm.get(sender.getName()).setPattern(sb.substring(0, sb.length() - 1));
                     sender.sendMessage(_("&aNew regex pattern set"));
                     return true;
                 } else if (args[1].equalsIgnoreCase("name")) {
-                    RegexBlock.getPlugin().getCommandHandler().getBuildMap().get(sender.getName()).setName(sb.substring(0, sb.length() - 1));
+                    rbm.get(sender.getName()).setName(sb.substring(0, sb.length() - 1));
                     sender.sendMessage(_("&aNew regex name set"));
                     return true;
                 } else if (args[1].equalsIgnoreCase("reason")) {
-                    RegexBlock.getPlugin().getCommandHandler().getBuildMap().get(sender.getName()).setReason(sb.substring(0, sb.length() - 1));
+                    rbm.get(sender.getName()).setReason(sb.substring(0, sb.length() - 1));
                     sender.sendMessage(_("&aNew regex reason set"));
                     return true;
                 }

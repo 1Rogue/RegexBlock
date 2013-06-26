@@ -17,10 +17,13 @@
 package com.rogue.regexblock.regex;
 
 import com.rogue.regexblock.RegexBlock;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -174,8 +177,8 @@ public class RegexManager {
      */
     public void addToFile(String name) {
         FileConfiguration regexFile = plugin.getConfig();
-        regexFile.set("regexes." + name + "regex", regexes.get(name).getPattern().toString());
-        regexFile.set("regexes." + name + "reason", regexes.get(name).getReason());
+        regexFile.set("regexes." + name + ".regex", regexes.get(name).getPattern().toString());
+        regexFile.set("regexes." + name + ".reason", regexes.get(name).getReason());
         saveFile();
     }
     
@@ -200,6 +203,10 @@ public class RegexManager {
      * @version 1.0
      */
     public void saveFile() {
-        FileConfiguration regexFile = plugin.getConfig();
+        try {
+            plugin.getConfig().save(new File(plugin.getDataFolder(), "config.yml"));
+        } catch (IOException ex) {
+            Logger.getLogger(RegexManager.class.getName()).log(Level.SEVERE, "Error saving configuration file", ex);
+        }
     }
 }
