@@ -18,7 +18,6 @@ package com.rogue.regexblock.listener;
 
 import com.rogue.regexblock.RegexBlock;
 import com.rogue.regexblock.regex.BlockRegex;
-import java.util.regex.Pattern;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

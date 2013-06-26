@@ -30,8 +30,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -150,15 +148,37 @@ public class RegexBlock extends JavaPlugin {
     public RBListener getListener() {
         return listener;
     }
-
+    
+    /**
+     * Gets the plugin's regex manager
+     * 
+     * @since 1.0
+     * @version 1.0
+     * 
+     * @return The plugin's regex manager
+     */
     public RegexManager getManager() {
         return regexMan;
     }
     
+    /**
+     * Gets the handler for commands of the plugin
+     * 
+     * @since 1.0
+     * @version 1.0
+     * 
+     * @return The command handler
+     */
     public CommandHandler getCommandHandler() {
         return commands;
     }
     
+    /**
+     * Converts pre-made strings to have chat colors in them
+     * 
+     * @param encoded String with unconverted color codes
+     * @return string with correct chat colors included
+     */
     public static String _(String encoded) {
         return ChatColor.translateAlternateColorCodes('&', encoded);
     }
