@@ -21,6 +21,7 @@ import com.rogue.regexblock.listener.RBListener;
 import com.rogue.regexblock.metrics.Metrics;
 import com.rogue.regexblock.regex.RegexBuild;
 import com.rogue.regexblock.regex.RegexManager;
+import com.rogue.regexblock.runnable.UpdateRunnable;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -80,12 +81,17 @@ public class RegexBlock extends JavaPlugin {
 
         if (!config.exists()) {
             this.getLogger().info("Generating first time config.yml...");
+            this.getConfig().addDefault("update-check", true);
             this.getConfig().addDefault("regexes.ips.regex", ".*[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+.*");
             this.getConfig().addDefault("regexes.ips.reason", "&cYou are not allowed to use IPs in chat");
             this.getConfig().addDefault("regexes.urls.regex", ".*[0-9a-zA-Z]+\\.[0-9a-zA-Z]+\\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}).*");
             this.getConfig().addDefault("regexes.urls.reason", "&cYou are not allowed to use URLs in chat");
             this.getConfig().options().copyDefaults(true);
             this.saveConfig();
+        }
+        
+        if (this.getConfig().getBoolean("update-check")) {
+            Bukkit.getScheduler().runTaskLater(this, new UpdateRunnable(this), 1);
         }
         
         
