@@ -117,50 +117,6 @@ public class RegexBlock extends JavaPlugin {
     }
 
     /**
-     * Main executor of commands. Grabs the appropriate command and executes it.
-     *
-     * @since 1.0
-     * @version 1.0
-     *
-     * @param cs The command executor
-     * @param cmd The command instance
-     * @param string The label of the command
-     * @param args The command arguments
-     *
-     * @return Command success
-     */
-    @Override
-    public boolean onCommand(CommandSender cs, Command cmd, String label, String[] args) {
-        if (cmd.getName().equalsIgnoreCase("rejected") && cs.hasPermission("rejected.version")) {
-            switch (args.length) {
-                case 2:
-                    if (args[0].equalsIgnoreCase("add") && cs.hasPermission("rejected.add")) {
-                        StringBuilder sb = new StringBuilder();
-                        for (int i = 1; i < args.length; i++) {
-                            sb.append(args[i]).append(" ");
-                        }
-                        //listener.addRegex(sb.substring(0, sb.length() - 2));
-                    } else if (args[0].equalsIgnoreCase("remove") && cs.hasPermission("rejected.remove")) {
-                        StringBuilder sb = new StringBuilder();
-                        for (int i = 1; i < args.length; i++) {
-                            sb.append(args[i]).append(" ");
-                        }
-                        //listener.remRegex(sb.substring(0, sb.length() - 2));
-                    }
-                    break;
-                case 1:
-                    if (args[0].equalsIgnoreCase("list") && cs.hasPermission("rejected.list")) {
-                    }
-                default:
-                    cs.sendMessage("Rejected v" + this.getDescription().getVersion() + " - made by " + this.getDescription().getAuthors().toArray()[0]);
-                    break;
-            }
-            return true;
-        }
-        return false;
-    }
-
-    /**
      * No use yet.
      *
      * @since 1.0
