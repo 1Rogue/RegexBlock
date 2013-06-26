@@ -50,24 +50,14 @@ public class RegexBlock extends JavaPlugin {
     protected Map<String, RegexBuild> commandtemp = new HashMap();
 
     /**
-     * Does nothing at this time
+     * Loads configuration
      *
      * @since 1.0
      * @version 1.0
      */
     @Override
     public void onLoad() {
-        this.getLogger().log(Level.INFO, "{0} is loaded!", this.getName());
-    }
-
-    /**
-     * Enables the regex manager, command system, listener, metrics, and configuration
-     *
-     * @since 1.0
-     * @version 1.0
-     */
-    @Override
-    public void onEnable() {
+        
         this.getLogger().log(Level.INFO, "Loading config...");
         config = new File(getDataFolder() + File.separator + "config.yml");
 
@@ -88,6 +78,25 @@ public class RegexBlock extends JavaPlugin {
             this.getConfig().addDefault("regexes.urls.reason", "&cYou are not allowed to use URLs in chat");
             this.getConfig().options().copyDefaults(true);
             this.saveConfig();
+        }
+        
+        this.getLogger().log(Level.INFO, "{0} is loaded!", this.getName());
+    }
+
+    /**
+     * Enables the regex manager, command system, listener, and plugin metrics.
+     *
+     * @since 1.0
+     * @version 1.0
+     */
+    @Override
+    public void onEnable() {
+        try {
+            Metrics metrics = new Metrics(this);
+            getLogger().info("Enabling Metrics...");
+            metrics.start();
+        } catch (IOException ex) {
+            Logger.getLogger(RegexBlock.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         if (this.getConfig().getBoolean("update-check")) {
