@@ -1,0 +1,29 @@
+main: com.rogue.regexblock.RegexBlock
+name: ${project.name}
+prefix: RegexBlock
+description: Allows filtering of commands and chats through dynamic regex usage
+version: ${project.version}
+author: 1Rogue
+website: https://github.com/1Rogue
+permissions:
+  regexblock.*:
+    default: op
+    children:
+      regexblock.bypass.*: true
+      regexblock.cmd.*: true
+  regexblock.cmd.*:
+    default: false
+    children:
+      regexblock.cmd: true
+      regexblock.cmd.add: true
+      regexblock.cmd.remove: true
+      regexblock.cmd.list: true
+      regexblock.cmd.help: true
+  regexblock.bypass.*:
+    default: false
+    children:
+      regexblock.bypass.*.chat: true
+      regexblock.bypass.*.commands: true
+commands:
+  regexblock:
+    permission: regexblock.cmd
