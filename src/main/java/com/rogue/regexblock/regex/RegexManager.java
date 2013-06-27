@@ -18,6 +18,7 @@ package com.rogue.regexblock.regex;
 
 import com.rogue.regexblock.RegexBlock;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +26,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 
 /**
@@ -207,6 +209,21 @@ public class RegexManager {
             plugin.getConfig().save(new File(plugin.getDataFolder(), "config.yml"));
         } catch (IOException ex) {
             Logger.getLogger(RegexManager.class.getName()).log(Level.SEVERE, "Error saving configuration file", ex);
+        }
+    }
+    
+    /**
+     * Clears the manager of all regexes and refreshes the config
+     * 
+     * @since 1.0
+     * @version 1.0
+     */
+    public void reloadManager() {
+        regexes.clear();
+        try {
+            plugin.getConfig().load(new File(plugin.getDataFolder(), "config.yml"));
+        } catch (Exception ex) {
+            Logger.getLogger(RegexManager.class.getName()).log(Level.SEVERE, "Error reloading Regex Manager", ex);
         }
     }
 }

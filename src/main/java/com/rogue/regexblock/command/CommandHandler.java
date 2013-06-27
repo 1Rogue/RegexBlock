@@ -51,6 +51,8 @@ public final class CommandHandler implements CommandExecutor {
         commands.put(help.getName().toLowerCase().trim(), help);
         ListCommand list = new ListCommand();
         commands.put(list.getName().toLowerCase().trim(), list);
+        ReloadCommand reload = new ReloadCommand();
+        commands.put(reload.getName().toLowerCase().trim(), reload);
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String alias, String[] args) {
