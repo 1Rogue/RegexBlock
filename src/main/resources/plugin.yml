@@ -19,6 +19,7 @@ permissions:
       regexblock.cmd.remove: true
       regexblock.cmd.list: true
       regexblock.cmd.help: true
+      regexblock.cmd.reload: true
   regexblock.bypass.*:
     default: false
     children:
