@@ -22,9 +22,9 @@ import org.bukkit.command.CommandSender;
  * Adapted from TotalPermissions
  * http://dev.bukkit.org/server-mods/totalpermissions
  * 
- * @since 1.0
+ * @since 1.0.0
  * @author Lord_Ralex
- * @version 1.0
+ * @version 1.0.0
  */
 public interface SubCommand {
 

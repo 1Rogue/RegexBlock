@@ -20,9 +20,9 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @since 1.0
+ * @since 1.0.0
  * @author 1Rogue
- * @version 1.0
+ * @version 1.0.0
  */
 public class BlockRegex {
     

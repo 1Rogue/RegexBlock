@@ -3,13 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.rogue</groupId>
   <artifactId>RegexBlock</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <name>RegexBlock</name>
   
   <repositories>
         <repository>
             <id>bukkit-repo</id>
-            <url>http://repo.bukkit.org/content/repositories/releases/</url>
+            <url>http://repo.bukkit.org/content/public/</url>
         </repository>
     </repositories>
     <licenses>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.5.2-R1.0</version>
+            <version>1.6.4-R0.1-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
     </dependencies>

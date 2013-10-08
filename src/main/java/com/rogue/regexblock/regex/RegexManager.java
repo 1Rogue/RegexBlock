@@ -31,9 +31,9 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 /**
  *
- * @since 1.0
+ * @since 1.0.0
  * @author 1Rogue
- * @version 1.0
+ * @version 1.0.0
  */
 public class RegexManager {
 
@@ -44,8 +44,8 @@ public class RegexManager {
      * Creates a new RegexManager, then creates and adds a BlockRegex object
      * from the provided data
      *
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      *
      * @param p The RegexBlock plugin instance
      * @param name Name of the BlockRegex
@@ -60,8 +60,8 @@ public class RegexManager {
     /**
      * Creates a new RegexManager, and adds any provided BlockRegex objects
      *
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      *
      * @param p The RegexBlock plugin instance
      * @param regex Any BlockRegex objects
@@ -76,8 +76,8 @@ public class RegexManager {
     /**
      * Adds provided BlockRegex(es) to the regex Map
      *
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      *
      * @param regex Any BlockRegex objects
      *
@@ -94,8 +94,8 @@ public class RegexManager {
     /**
      * Creates a new BlockRegex object and adds it to the current regexes
      *
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      *
      * @param name Name of the BlockRegex
      * @param reason The denial reason for when the regex is triggered
@@ -112,8 +112,8 @@ public class RegexManager {
     /**
      * Returns the full Map of all the regexes
      *
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      *
      * @return The Map of regexes
      */
@@ -124,8 +124,8 @@ public class RegexManager {
     /**
      * Gets a BlockRegex by name
      *
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      *
      * @param name The name of the BlockRegex
      * @return The BlockRegex, null if provided name does not exist
@@ -137,8 +137,8 @@ public class RegexManager {
     /**
      * Removes a BlockRegex by its designated name
      *
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      *
      * @param name The regex's name
      * @return The updated map of regexes
@@ -152,8 +152,8 @@ public class RegexManager {
     /**
      * Loads any possible regex configurations from the config file
      *
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      */
     public void loadFromConfig() {
         FileConfiguration regexFile = plugin.getConfig();
@@ -172,8 +172,8 @@ public class RegexManager {
     /**
      * Adds a BlockRegex to the plugin's config, then saves it
      * 
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      * 
      * @param name The name of the regex
      */
@@ -187,8 +187,8 @@ public class RegexManager {
     /**
      * Removes a BlockRegex from the plugin's config, then saves it
      * 
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      * 
      * @param name The name of the regex
      */
@@ -201,8 +201,8 @@ public class RegexManager {
     /**
      * Saves the currently loaded configuration
      * 
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      */
     public void saveFile() {
         try {
@@ -215,8 +215,8 @@ public class RegexManager {
     /**
      * Clears the manager of all regexes and refreshes the config
      * 
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      */
     public void reloadManager() {
         regexes.clear();

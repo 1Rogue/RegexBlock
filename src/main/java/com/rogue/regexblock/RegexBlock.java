@@ -31,9 +31,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  *
- * @since 1.0
+ * @since 1.0.0
  * @author 1Rogue
- * @version 1.0
+ * @version 1.0.0
  * 
  */
 public class RegexBlock extends JavaPlugin {
@@ -42,12 +42,13 @@ public class RegexBlock extends JavaPlugin {
     protected File config;
     protected CommandHandler commands;
     protected RegexManager regexMan;
+    protected boolean isUpdate = false;
 
     /**
      * Loads configuration
      *
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      */
     @Override
     public void onLoad() {
@@ -72,8 +73,8 @@ public class RegexBlock extends JavaPlugin {
     /**
      * Enables the regex manager, command system, listener, and plugin metrics.
      *
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      */
     @Override
     public void onEnable() {
@@ -103,21 +104,10 @@ public class RegexBlock extends JavaPlugin {
     }
 
     /**
-     * No use yet.
-     *
-     * @since 1.0
-     * @version 1.0
-     */
-    @Override
-    public void onDisable() {
-        this.getLogger().log(Level.INFO, "{0} is disabled!", this.getName());
-    }
-
-    /**
      * Gets the instance of the plugin in its entirety.
      *
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      *
      * @return The plugin instance
      */
@@ -128,8 +118,8 @@ public class RegexBlock extends JavaPlugin {
     /**
      * Gets the plugin's listener
      *
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      *
      * @return The plugin's listener
      */
@@ -140,8 +130,8 @@ public class RegexBlock extends JavaPlugin {
     /**
      * Gets the plugin's regex manager
      * 
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.0
      * 
      * @return The plugin's regex manager
      */
@@ -152,22 +142,49 @@ public class RegexBlock extends JavaPlugin {
     /**
      * Gets the handler for commands of the plugin
      * 
-     * @since 1.0
-     * @version 1.0
+     * @since 1.0.0
+     * @version 1.0.1
      * 
      * @return The command handler
      */
     public CommandHandler getCommandHandler() {
-        return commands;
+        return this.commands;
     }
     
     /**
      * Converts pre-made strings to have chat colors in them
+     * 
+     * @since 1.0.0
+     * @version 1.0.0
      * 
      * @param encoded String with unconverted color codes
      * @return string with correct chat colors included
      */
     public static String _(String encoded) {
         return ChatColor.translateAlternateColorCodes('&', encoded);
+    }
+    
+    /**
+     * Returns whether or not a public update is available.
+     * 
+     * @since 1.0.1
+     * @version 1.0.1
+     * 
+     * @return Update status
+     */
+    public boolean isUpdateAvailable() {
+        return this.isUpdate;
+    }
+    
+    /**
+     * Sets whether or not there is an update available.
+     * 
+     * @since 1.0.1
+     * @version 1.0.1
+     * 
+     * @param isUpdate True if update is available, false otherwise.
+     */
+    public void setUpdate(boolean isUpdate) {
+        this.isUpdate = isUpdate;
     }
 }

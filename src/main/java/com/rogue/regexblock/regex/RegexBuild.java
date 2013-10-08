@@ -19,9 +19,9 @@ package com.rogue.regexblock.regex;
 /**
  * Used as a temporary class in building a regex via commands.
  * 
- * @since 1.0
+ * @since 1.0.0
  * @author 1Rogue
- * @version 1.0
+ * @version 1.0.0
  */
 public class RegexBuild {
     

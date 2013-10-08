@@ -30,9 +30,9 @@ import static com.rogue.regexblock.RegexBlock._;
  * Adapted from TotalPermissions
  * http://dev.bukkit.org/server-mods/totalpermissions
  * 
- * @version 1.0
+ * @version 1.0.0
  * @author Lord_Ralex
- * @since 1.0
+ * @since 1.0.0
  */
 public final class CommandHandler implements CommandExecutor {
     
@@ -97,7 +97,7 @@ public final class CommandHandler implements CommandExecutor {
      *
      * @return Map of registered sub commands
      *
-     * @since 1.0
+     * @since 1.0.0
      */
     public Map<String, SubCommand> getCommandList() {
         return commands;
